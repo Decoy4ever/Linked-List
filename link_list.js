@@ -44,6 +44,14 @@ class LinkedList{
             this.head = node
             // console.log(this.head)
             return this.head
+        }else{
+            let current = node
+
+            current.nextNode = this.head 
+
+            this.head = current
+
+            return this.head
         }
     }   
 
@@ -51,11 +59,20 @@ class LinkedList{
 
         let current = this.head 
         console.log(current)
+        let stringOfNodes = "null"
+        while(current !== null){
+            // print out the values
+            let data = current.value
+            console.log(data)
 
-        let linkList = `(${current.value})`
-        console.log(linkList)
+            stringOfNodes = `(${data}) -> ` + stringOfNodes
+            // traverse the link list
+            // console.log(current)
+            current = current.nextNode
+            
+        }
 
-        return linkList
+        return stringOfNodes
         
     }
    
@@ -67,10 +84,11 @@ class LinkedList{
 
 
 const list = new LinkedList()
+list.append("dog");
 list.append("cat");
-// list.append("parrot");
-// list.append("hamster");
-// list.append("snake");
-// list.append("turtle");
+list.append("parrot");
+list.append("hamster");
+list.append("snake");
+list.append("turtle");
 console.log(list.toString())
 
