@@ -30,49 +30,47 @@ class LinkedList{
         this.head = null
     }
 
+    // 1. `append(value)` adds a new node to the END of the list
     append(value){
+
         let node = new Node(value)
-        // console.log(`Node inserted into list: Node { data: ${node.value}, next: ${node.nextNode}}`)
-
-        // if the link list is empty create node. This will start of the link list
-        // else if the link list is not empty check
-        // create a var called current that points to the node that is to be appeneded to an existing linked list
-        // traverse the node and update the current.nextNode
-        // return the link list
         if(this.head === null){
-            
             this.head = node
-            // console.log(this.head)
-            return this.head
-        }else{
-            let current = node
-
-            current.nextNode = this.head 
-
-            this.head = current
-
-            return this.head
+            return this.head;
         }
-    }   
+
+        let current = this.head 
+        
+        while(current.nextNode !== null){
+            // traverseing through link list
+            current = current.nextNode 
+        }
+        
+        current.nextNode = node
+        return this.head
+    } 
 
     toString(){
 
         let current = this.head 
-        console.log(current)
-        let stringOfNodes = "null"
+
+        console.log("\n")
+        console.log("Final Linked List is shown below")
+        // console.log(current)
+        let stringOfNodes = ""
         while(current !== null){
             // print out the values
             let data = current.value
-            console.log(data)
 
-            stringOfNodes = `(${data}) -> ` + stringOfNodes
+            stringOfNodes += `(${data}) -> ` 
+
             // traverse the link list
             // console.log(current)
             current = current.nextNode
             
         }
 
-        return stringOfNodes
+        return stringOfNodes + "null"
         
     }
    
@@ -84,9 +82,9 @@ class LinkedList{
 
 
 const list = new LinkedList()
+// list.append("")
 list.append("dog");
 list.append("cat");
-list.append("parrot");
 list.append("hamster");
 list.append("snake");
 list.append("turtle");
