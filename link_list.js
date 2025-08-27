@@ -73,6 +73,26 @@ class LinkedList{
 
     }
 
+    size(){
+        let numOfNodes = 0
+        let current = this.head 
+
+        if(current === null){
+            return 0;
+        }
+
+        while(current !== null){
+            // traversing linked list
+            current = current.nextNode 
+
+            // every time reach a node increment the numOfNodes
+            numOfNodes++
+        }
+
+        console.log(numOfNodes)
+        return numOfNodes
+    }
+
     toString(){
 
         let current = this.head 
@@ -106,15 +126,17 @@ class LinkedList{
 
 const list = new LinkedList()
 // Append
-list.append("dog");
-list.append("cat");
-list.append("dingo");
-list.append("snake");
+// list.append("dog");
+// list.append("cat");
+// list.append("dingo");
+// list.append("snake");
 
 // Prepend
-list.prepend("hamster");
-list.prepend("turle");
-list.prepend("monkey");
+// list.prepend("hamster");
+// list.prepend("turle");
+// list.prepend("monkey");
+
+console.log(list.size())
 
 console.log(list.toString())
 
