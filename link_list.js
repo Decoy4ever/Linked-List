@@ -45,10 +45,33 @@ class LinkedList{
             // traverseing through link list
             current = current.nextNode 
         }
-        
+
         current.nextNode = node
         return this.head
     } 
+
+    // 2. `prepend(value)` adds a new node containing value to the START of the list
+    // list : dog -> cat -> null
+    // prepend(hamster)
+    // list : hamster -> dog -> cat -> null
+    prepend(value){
+
+        let node = new Node(value)
+        console.log(node)
+
+        // get the current link list
+        let current = this.head
+        console.log(current)
+
+        node.nextNode = current
+        // console.log(node)
+
+        this.head = node
+        console.log(this.head)
+
+        return this.head
+
+    }
 
     toString(){
 
@@ -82,11 +105,16 @@ class LinkedList{
 
 
 const list = new LinkedList()
-// list.append("")
+// Append
 list.append("dog");
 list.append("cat");
-list.append("hamster");
+list.append("dingo");
 list.append("snake");
-list.append("turtle");
+
+// Prepend
+list.prepend("hamster");
+list.prepend("turle");
+list.prepend("monkey");
+
 console.log(list.toString())
 
