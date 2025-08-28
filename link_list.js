@@ -118,9 +118,33 @@ class LinkedList{
             current = current.nextNode
             count++
         }
-        console.log(`Tail is: ${tail}`)
+        // console.log(`Tail is: ${tail}`)
         return tail
     }
+
+    // 6. `at(index)` returns the node at the given index
+    at(index){
+        let count = 0
+        let current = this.head 
+        let nodeSelected = null
+        let maxSize = this.size()
+
+        if(index < 0 || index >= maxSize) throw new Error("Out of Bounds");
+        
+
+        while(current !== null){
+            if(count === index){
+                nodeSelected = current
+            }
+            current = current.nextNode
+            count++
+        }
+
+        return nodeSelected
+        // console.log(nodeSelected)
+    }
+
+    // 7. `pop` removes the last element from the list
 
     toString(){
 
@@ -165,9 +189,20 @@ list.prepend("hamster");
 list.prepend("turle");
 // list.prepend("monkey");
 
-console.log(list.size())
-console.log(list.headNode())
-console.log(list.tailNode())
+// console.log(list.size())
+// console.log(list.headNode())
+// console.log(list.tailNode())
+
+// at(Index)
+console.log(list.at(0))
+console.log(list.at(1))
+console.log(list.at(2))
+console.log(list.at(3))
+console.log(list.at(4))
+console.log(list.at(5))
+console.log(list.at(-1))
+
+
 
 
 console.log(list.toString())
