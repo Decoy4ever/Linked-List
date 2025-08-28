@@ -57,22 +57,23 @@ class LinkedList{
     prepend(value){
 
         let node = new Node(value)
-        console.log(node)
+        // console.log(node)
 
         // get the current link list
         let current = this.head
-        console.log(current)
+        // console.log(current)
 
         node.nextNode = current
         // console.log(node)
 
         this.head = node
-        console.log(this.head)
+        // console.log(this.head)
 
         return this.head
 
     }
 
+    //  3. `size` returns the total number of nodes in the list
     size(){
         let numOfNodes = 0
         let current = this.head 
@@ -89,8 +90,36 @@ class LinkedList{
             numOfNodes++
         }
 
-        console.log(numOfNodes)
+        // console.log(numOfNodes)
         return numOfNodes
+    }
+
+
+    //  4. `head` returns the first node in the list
+    headNode(){
+        console.log(`Head of the node points to ${this.head}`)
+        return this.head
+    }
+
+    //  5. `tail` returns the last node in the list
+    tailNode(){
+        // keep track of positions we traverse throughout link list
+        let count = 0
+
+        // Find the max size of the link list
+        let sizeOfList = this.size()
+
+        // create variable tail that will store the last node
+        let tail = null
+
+        let current = this.head
+        while(count < sizeOfList){
+            tail = current
+            current = current.nextNode
+            count++
+        }
+        console.log(`Tail is: ${tail}`)
+        return tail
     }
 
     toString(){
@@ -126,17 +155,20 @@ class LinkedList{
 
 const list = new LinkedList()
 // Append
-// list.append("dog");
-// list.append("cat");
-// list.append("dingo");
+list.append("dog");
+list.append("cat");
+list.append("dingo");
 // list.append("snake");
 
 // Prepend
-// list.prepend("hamster");
-// list.prepend("turle");
+list.prepend("hamster");
+list.prepend("turle");
 // list.prepend("monkey");
 
 console.log(list.size())
+console.log(list.headNode())
+console.log(list.tailNode())
+
 
 console.log(list.toString())
 
