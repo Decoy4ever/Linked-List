@@ -51,23 +51,12 @@ class LinkedList{
     } 
 
     // 2. `prepend(value)` adds a new node containing value to the START of the list
-    // list : dog -> cat -> null
-    // prepend(hamster)
-    // list : hamster -> dog -> cat -> null
     prepend(value){
 
         let node = new Node(value)
-        // console.log(node)
-
-        // get the current link list
         let current = this.head
-        // console.log(current)
-
         node.nextNode = current
-        // console.log(node)
-
         this.head = node
-        // console.log(this.head)
 
         return this.head
 
@@ -90,14 +79,12 @@ class LinkedList{
             numOfNodes++
         }
 
-        // console.log(numOfNodes)
         return numOfNodes
     }
 
 
     //  4. `head` returns the first node in the list
     headNode(){
-        console.log(`Head of the node points to ${this.head}`)
         return this.head
     }
 
@@ -118,7 +105,7 @@ class LinkedList{
             current = current.nextNode
             count++
         }
-        // console.log(`Tail is: ${tail}`)
+
         return tail
     }
 
@@ -131,7 +118,6 @@ class LinkedList{
 
         if(index < 0 || index >= maxSize) throw new Error("Out of Bounds");
         
-
         while(current !== null){
             if(count === index){
                 nodeSelected = current
@@ -141,10 +127,28 @@ class LinkedList{
         }
 
         return nodeSelected
-        // console.log(nodeSelected)
     }
 
     // 7. `pop` removes the last element from the list
+    pop(){
+   
+        let current = this.head 
+        let sizeOfList = this.size()
+
+        let temp = null
+        let count = 0
+
+        // traverse the link list and find node before the tail node
+        while(count < sizeOfList - 1){
+            temp = current
+            current = current.nextNode 
+            count++
+        }
+
+        temp.nextNode = null
+
+        return this.head
+    }
 
     toString(){
 
@@ -185,8 +189,8 @@ list.append("dingo");
 // list.append("snake");
 
 // Prepend
-list.prepend("hamster");
-list.prepend("turle");
+// list.prepend("hamster");
+// list.prepend("turle");
 // list.prepend("monkey");
 
 // console.log(list.size())
@@ -194,13 +198,16 @@ list.prepend("turle");
 // console.log(list.tailNode())
 
 // at(Index)
-console.log(list.at(0))
-console.log(list.at(1))
-console.log(list.at(2))
-console.log(list.at(3))
-console.log(list.at(4))
-console.log(list.at(5))
-console.log(list.at(-1))
+// console.log(list.at(0))
+// console.log(list.at(1))
+// console.log(list.at(2))
+// console.log(list.at(3))
+// console.log(list.at(4))
+// console.log(list.at(5))
+// console.log(list.at(-1))
+
+// pop()
+console.log(list.pop())
 
 
 
