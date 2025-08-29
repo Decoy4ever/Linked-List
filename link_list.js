@@ -57,7 +57,6 @@ class LinkedList{
         let current = this.head
         node.nextNode = current
         this.head = node
-
         return this.head
 
     }
@@ -174,6 +173,24 @@ class LinkedList{
     }
 
     // 9. `find(value)` returns the index of the node containing value, or null if not found.
+    find(value){
+        // return the "index of the node" containing the value
+        let current = this.head
+        let index = 0
+
+        while(current !== null){
+
+            if(value === current.value){
+                return index
+            }
+            current = current.nextNode
+            index++
+        }
+
+        // value does not exist in the link list
+        return -1
+
+    }
 
     toString(){
 
@@ -181,7 +198,7 @@ class LinkedList{
 
         console.log("\n")
         console.log("Final Linked List is shown below")
-        // console.log(current)
+        console.log(current)
         let stringOfNodes = ""
         while(current !== null){
             // print out the values
@@ -237,10 +254,22 @@ list.append(3);
 
 // pop()
 // console.log(list.pop())
-console.log(list.contains(`dog`))
-console.log(list.contains(`hamster`))
-console.log(list.contains(`cat`))
-console.log(list.contains(5))
+// console.log(list.contains(`dog`))
+// console.log(list.contains(`hamster`))
+// console.log(list.contains(`cat`))
+// console.log(list.contains(5))
+console.log(list.find(`dog`))
+console.log(list.find("cat"))
+console.log(list.find("dingo"))
+
+
+console.log(list.find(""))
+console.log(list.find(-5))
+console.log(list.find(1))
+
+
+
+
 
 
 
