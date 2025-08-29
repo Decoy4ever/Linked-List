@@ -150,6 +150,31 @@ class LinkedList{
         return this.head
     }
 
+    // 8. `contains(value)` returns true if the passed in value is in the list and otherwise returns false.
+    contains(value){
+        let current = this.head
+        console.log(current)
+
+        // traverese the link list
+        // if the value is equal to the current.value
+        // return true
+        // else return false
+
+        let bool = false
+        while(current !== null){
+            if(value === current.value){
+                bool = true
+            }else{
+                bool
+            }
+            current = current.nextNode
+
+        }
+        return bool
+    }
+
+    // 9. `find(value)` returns the index of the node containing value, or null if not found.
+
     toString(){
 
         let current = this.head 
@@ -188,6 +213,10 @@ list.append("cat");
 list.append("dingo");
 // list.append("snake");
 
+list.append(1);
+list.append(2);
+list.append(3);
+
 // Prepend
 // list.prepend("hamster");
 // list.prepend("turle");
@@ -207,7 +236,14 @@ list.append("dingo");
 // console.log(list.at(-1))
 
 // pop()
-console.log(list.pop())
+// console.log(list.pop())
+console.log(list.contains(`dog`))
+console.log(list.contains(`hamster`))
+console.log(list.contains(`cat`))
+console.log(list.contains(5))
+
+
+
 
 
 
