@@ -192,13 +192,65 @@ class LinkedList{
 
     }
 
+    //  inserts a new node with the provided value at the given index.
+    // 1. Traverse the current link list and find the node at index - 1
+    // 2. Set the current.nextNode to point to the newly inserted node
+    // 3. set the newly inserted node to the original node that was originally in the link list
+    insertAt(value, index){
+
+        let current = this.head 
+        let node = new Node(value)
+        let count = 0
+
+        if(index < 0){
+            
+        }
+
+        // if the index is greater than size of link list return an error
+        let sizeOfList = this.size()
+        if(index > sizeOfList){
+            throw new Error(`The number provided for the index is greater than the size of current Link list.`)
+        }
+
+        let previous = null
+        while(count < index && current !== null ){
+            console.log(current, count)
+
+            previous = current
+            // console.log(previous)
+            current = current.nextNode
+            count++
+        }
+        console.log(`\n`)
+        console.log(`Node at pos ${count}`)
+        console.log(`-------------`)
+        console.log(previous)
+
+        console.log(`\n`)
+        console.log(`new Node at pos ${count}`)
+        console.log(`-------------`)
+        // console.log(previous.nextNode)
+        node.nextNode = previous.nextNode
+        console.log(node)
+
+        console.log(previous)
+        previous.nextNode = node 
+
+        // increase the size of the link list 
+        sizeOfList++
+
+
+        return this.head
+      
+    }
+
     toString(){
 
         let current = this.head 
 
         console.log("\n")
         console.log("Final Linked List is shown below")
-        console.log(current)
+        // console.log(current)
         let stringOfNodes = ""
         while(current !== null){
             // print out the values
@@ -230,9 +282,9 @@ list.append("cat");
 list.append("dingo");
 // list.append("snake");
 
-list.append(1);
-list.append(2);
-list.append(3);
+// list.append(1);
+// list.append(2);
+// list.append(3);
 
 // Prepend
 // list.prepend("hamster");
@@ -258,14 +310,27 @@ list.append(3);
 // console.log(list.contains(`hamster`))
 // console.log(list.contains(`cat`))
 // console.log(list.contains(5))
-console.log(list.find(`dog`))
-console.log(list.find("cat"))
-console.log(list.find("dingo"))
+// console.log(list.find(`dog`))
+// console.log(list.find("cat"))
+// console.log(list.find("dingo"))
 
 
-console.log(list.find(""))
-console.log(list.find(-5))
-console.log(list.find(1))
+// console.log(list.find(""))
+// console.log(list.find(-5))
+// console.log(list.find(1))
+
+// insertAt()
+// repalce cat at index 1 with hamster
+console.log(list.insertAt(`hamster`,1))
+console.log(list.size())
+
+console.log(list.insertAt(`chicken`,2))
+console.log(list.size())
+
+console.log(list.insertAt(`chicken`,7))
+
+
+
 
 
 
