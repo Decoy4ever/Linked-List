@@ -245,29 +245,19 @@ class LinkedList{
     toString(){
 
         let current = this.head 
-
-        console.log("\n")
-        console.log("Final Linked List is shown below")
-        // console.log(current)
         let stringOfNodes = ""
+        
         while(current !== null){
+
             // print out the values
             let data = current.value
-
             stringOfNodes += `(${data}) -> ` 
-
-            // traverse the link list
-            // console.log(current)
             current = current.nextNode
             
         }
 
         return stringOfNodes + "null"
-        
     }
-   
-
-
 }
 
 
