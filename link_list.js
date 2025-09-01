@@ -1,28 +1,10 @@
-/**
- * Node class contains following attributes.
- * 1. data value 
- * 2. next/addr 
-*/ 
-class Node{
+ class Node{
     constructor(value = null, nextNode = null){
         this.value = value
         this.nextNode = nextNode
     }
 }
 
-/**
- * Linked list will contain the following functions for a linked list 
- * 1. `append(value)` adds a new node containing value to the end of the list
- * 2. `prepend(value)` adds a new node containing value to the start of the list
- * 3. `size` returns the total number of nodes in the list
- * 4. `head` returns the first node in the list
- * 5. `tail` returns the last node in the list
- * 6. `at(index)` returns the node at the given index
- * 7. `pop` removes the last element from the list
- * 8. `contains(value)` returns true if the passed in value is in the list and otherwise returns false.
- * 9. `find(value)` returns the index of the node containing value, or null if not found.
- * 10. `toString` represents your LinkedList objects as strings, so you can print them out and preview them in the console. The format should be: ( value ) -> ( value ) -> ( value ) -> null
- */
 class LinkedList{
 
     constructor(){
@@ -41,7 +23,8 @@ class LinkedList{
         let current = this.head 
         
         while(current.nextNode !== null){
-            // traverseing through link list
+
+            // traverse through link list
             current = current.nextNode 
         }
 
@@ -178,14 +161,12 @@ class LinkedList{
         }
 
         // value does not exist in the link list
-        return -1
+        console.error(`The Index of ${value} is currently not found in the link list`)
+        
 
     }
 
-    // Inserts a new node with the provided value at the given index.
-    // 1. Traverse the current link list and find the node at index - 1
-    // 2. Set the current.nextNode to point to the newly inserted node
-    // 3. set the newly inserted node to the original node that was originally in the link list
+    // 10. Inserts a new node with the provided value at the given index.
     insertAt(value, index){
 
         let current = this.head 
@@ -195,7 +176,7 @@ class LinkedList{
         // if the index is greater than size of link list return an error
         let sizeOfList = this.size()
         if(index > sizeOfList){
-            throw new Error(`The number provided for the index is greater than the size of current Link list.`)
+            console.error(`The number provided for the index is greater than the size of current Link list.`)
         }
 
         let previous = null
@@ -215,10 +196,7 @@ class LinkedList{
       
     }
 
-    // removeAt(index) that removes the node at the given index.
-    // traverse the list to find the node at index - 1 
-    // set node to null
-    // point the node at index - 1 to the next current node
+    // 11. removeAt(index) that removes the node at the given index.
     removeAt(index){
 
         let count = 0
@@ -246,7 +224,7 @@ class LinkedList{
 
         let current = this.head 
         let stringOfNodes = ""
-        
+
         while(current !== null){
 
             // print out the values
@@ -268,60 +246,44 @@ const list = new LinkedList()
 list.append("dog");
 list.append("cat");
 list.append("dingo");
-// list.append("snake");
-
-// list.append(1);
-// list.append(2);
-// list.append(3);
 
 // Prepend
-list.prepend("hamster");
-console.log(`Original Link List`)
-console.log(list.toString())
-
+// list.prepend("hamster");
 // list.prepend("turle");
-// list.prepend("monkey");
 
+// find size of link list
 // console.log(list.size())
+
+// find the head node of current link list
 // console.log(list.headNode())
+
+// find the tail node of current link list
 // console.log(list.tailNode())
 
-// at(Index)
+// find the nodes at certain index
 // console.log(list.at(0))
-// console.log(list.at(1))
 // console.log(list.at(2))
 // console.log(list.at(3))
-// console.log(list.at(4))
-// console.log(list.at(5))
 // console.log(list.at(-1))
 
 // pop()
 // console.log(list.pop())
+
+// check if the value exists in link list
 // console.log(list.contains(`dog`))
-// console.log(list.contains(`hamster`))
 // console.log(list.contains(`cat`))
 // console.log(list.contains(5))
+
+// finding the index of a node
 // console.log(list.find(`dog`))
 // console.log(list.find("cat"))
-// console.log(list.find("dingo"))
+// console.log(list.find("dragon"))
 
-
-// console.log(list.find(""))
-// console.log(list.find(-5))
-// console.log(list.find(1))
-
-// insertAt()
+// inserting new nodes in link list
 // repalce cat at index 1 with hamster
 // console.log(list.insertAt(`hamster`,1))
 // console.log(list.size())
 
-// console.log(list.insertAt(`chicken`,2))
-// console.log(list.size())
-
-// console.log(list.insertAt(`chicken`,7))
-
-// remove cat
+// remove node at specific position in link list
 // console.log(list.removeAt(1))
-console.log(list.removeAt(2))
 console.log(list.toString())
-
